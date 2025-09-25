@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Protocolos de Saúde - Prefeitura de São Paulo</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+    header { background: #0072c6; color: white; padding: 20px; text-align: center; }
+    nav { background: #005a9e; padding: 10px; text-align: center; position: sticky; top: 0; z-index: 1000; }
+    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; transition: color 0.3s; }
+    nav a:hover { color: #ffdd57; }
+    section { padding: 20px; background: white; margin: 20px auto; max-width: 900px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    footer { background: #0072c6; color: white; text-align: center; padding: 10px; margin-top: 40px; }
+    .hidden { display: none; }
+    .active { display: block; animation: fadeIn 0.5s ease-in-out; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 8px; }
+    #searchBar { width: 90%; max-width: 600px; margin: 20px auto; display: block; padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Protocolos de Saúde</h1>
+  <p>Prefeitura Municipal de São Paulo</p>
+</header>
+
+<input type="text" id="searchBar" placeholder="🔍 Buscar por exame, especialidade ou palavra-chave..." onkeyup="searchContent()">
+
+<nav>
+  <a href="#" onclick="showSection('imagem')">Exames de Imagem</a>
+  <a href="#" onclick="showSection('diagnostico')">Exames Diagnósticos</a>
+  <a href="#" onclick="showSection('cirurgia')">Cirurgia Geral</a>
+  <a href="#" onclick="showSection('colonoscopia')">Colonoscopia</a>
+  <a href="#" onclick="showSection('agendamento')">Agendamento</a>
+  <a href="#" onclick="showSection('downloads')">Downloads</a>
+</nav>
+
+<section id="imagem" class="active">
+  <h2>🧪 Ressonância Magnética</h2>
+  <p>Critérios clínicos, documentos exigidos e fluxo de encaminhamento para exames de ressonância magnética na rede municipal.</p>
+  <ul>
+    <li><a href="downloads/Protocolos de Acesso Ressonancia Magnetica.pdf" target="_blank">Protocolo de Ressonância Magnética (PDF)</a></li>
+  </ul>
+</section>
+
+<section id="diagnostico" class="hidden">
+  <h2>🔬 Exames de Apoio Diagnóstico</h2>
+  <p>Protocolos para exames laboratoriais, funcionais e de imagem, com orientações para profissionais da saúde.</p>
+  <ul>
+    <li><a href="downloads/Protocolos de Acesso para exames de Apoio Diagnóstico.pdf" target="_blank">Protocolo de Exames de Apoio Diagnóstico (PDF)</a></li>
+  </ul>
+</section>
+
+<section id="cirurgia" class="hidden">
+  <h2>🏥 Cirurgia Geral</h2>
+  <p>Orientações para agendamento de cirurgias eletivas, incluindo critérios clínicos e documentação necessária.</p>
+  <ul>
+    <li><a href="downloads/Orientações Sobre Agendamento Cirurgia Geral.docx" target="_blank">Orientações Cirurgia Geral (DOCX)</a></li>
+  </ul>
+</section>
+
+<section id="colonoscopia" class="hidden">
+  <h2>📋 Colonoscopia Hospitalar</h2>
+  <p>Indicações clínicas, preparo do paciente e fluxo de agendamento para colonoscopia hospitalar.</p>
+  <ul>
+    <li><a href="downloads/Colonoscopia Hospitalar.docx" target="_blank">Protocolo Colonoscopia Hospitalar (DOCX)</a></li>
+  </ul>
+</section>
+
+<section id="agendamento" class="hidden">
+  <h2>📱 Agendamento e Confirmação</h2>
+  <p>Informações sobre o uso do WhatsApp SP156, Agenda Fácil e a importância da atualização cadastral.</p>
+  <ul>
+    <li><a href="https://www.prefeitura.sp.gov.br/cidade/secretarias/saude/agenda_facil/" target="_blank">Acesse o Agenda Fácil</a></li>
+    <li><a href="https://www.prefeitura.sp.gov.br/cidade/secretarias/saude/sp156/" target="_blank">Confirmação via WhatsApp SP156</a></li>
+  </ul>
+</section>
+
+<section id="downloads" class="hidden">
+  <h2>📥 Área de Downloads</h2>
+  <p>Baixe os protocolos oficiais em PDF e DOCX, atualizados pela Secretaria Municipal da Saúde.</p>
+  <ul>
+    <li><a href="downloads/Protocolos de Acesso Ressonancia Magnetica.pdf" target="_blank">Ressonância Magnética</a></li>
+    <li><a href="downloads/Protocolos de Acesso para exames de Apoio Diagnóstico.pdf" target="_blank">Exames de Apoio Diagnóstico</a></li>
+    <li><a href="downloads/Orientações Sobre Agendamento Cirurgia Geral.docx" target="_blank">Cirurgia Geral</a></li>
+    <li><a href="downloads/Colonoscopia Hospitalar.docx" target="_blank">Colonoscopia Hospitalar</a></li>
+  </ul>
+</section>
+
+<footer>
+  <p>© 2025 Prefeitura de São Paulo | Secretaria Municipal da Saúde</p>
+</footer>
+
+<script>
+  function showSection(id) {
+    const sections = document.querySelectorAll('section');
+    sections.forEach(sec => sec.classList.add('hidden'));
+    document.getElementById(id).classList.remove('hidden');
+    document.getElementById(id).classList.add('active');
+  }
+
+  function searchContent() {
+    const input = document.getElementById('searchBar').value.toLowerCase();
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+      const text = section.textContent.toLowerCase();
+      if (text.includes(input)) {
+        section.classList.remove('hidden');
+        section.classList.add('active');
+      } else {
+        section.classList.remove('active');
+        section.classList.add('hidden');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
